@@ -13,7 +13,7 @@ public class Constants {
     public static String equalString = " = ";
     public static String customerString = "Customer: ";
     public static String itemString = "Item";
-    public static String QtyString = "Qty";
+    public static String QtyString = "Qty(Kg/Lt)";
     public static String AmountString = "Amount";
     private Constants() {
     }
