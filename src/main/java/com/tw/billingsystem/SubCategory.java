@@ -6,12 +6,12 @@ public class SubCategory extends Category {
 
     private final MainCategory mainCategory;
 
-    public SubCategory(String name, Double discountPercentage, MainCategory mainCategory) {
-        super(name, discountPercentage);
+    public SubCategory(String name, PercentDiscount discount, MainCategory mainCategory) {
+        super(name, discount);
         this.mainCategory = mainCategory;
     }
 
-    public MainCategory getMainCategory() {
-        return mainCategory;
+    public PercentDiscount maxDiscount() {
+        return super.maxDiscount(mainCategory);
     }
 }

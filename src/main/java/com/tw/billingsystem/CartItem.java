@@ -9,11 +9,16 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public Item getItem() {
-        return item;
+    Double calculateDiscountedPrice() {
+        return this.item.calculateAmountToPay(this.quantity);
     }
 
-    public Double getQuantity() {
-        return quantity;
+    Double calculateTotalPrice() {
+        return this.item.calculateTotalAmount(this.quantity);
     }
+
+    InvoiceItem getInvoiceItem() {
+        return new InvoiceItem(item.getName(), this.quantity, this.calculateDiscountedPrice());
+    }
+
 }

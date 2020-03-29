@@ -1,17 +1,19 @@
 
 import com.tw.billingsystem.Customer;
+import com.tw.billingsystem.Invoice;
 import com.tw.io.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static com.tw.billingsystem.Constants.*;
 
 public class BillingSystem {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Reader reader = new ConsoleReader();
-//        Writer writer = new ConsoleWriter();
+        Writer writer = new ConsoleWriter();
 
         System.out.println(enterChoiceMessage);
 
@@ -21,5 +23,7 @@ public class BillingSystem {
         }
 
         Customer customer = reader.read();
+        Invoice invoice = customer.generateInvoice();
+        writer.write(invoice);
     }
 }

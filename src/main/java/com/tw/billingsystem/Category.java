@@ -2,18 +2,17 @@ package com.tw.billingsystem;
 
 public abstract class Category {
     private final String name;
-    private final Double discountPercentage;
+    private final PercentDiscount discount;
 
-    public Category(String name, Double discountPercentage) {
+    public Category(String name, PercentDiscount discount) {
         this.name = name;
-        this.discountPercentage = discountPercentage;
+        this.discount = discount;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Double getDiscountPercentage() {
-        return discountPercentage;
+    public PercentDiscount maxDiscount(Category parentCategory) {
+        if(this.discount.compareTo(parentCategory.discount)) {
+            return this.discount;
+        }
+        return parentCategory.discount;
     }
 }
